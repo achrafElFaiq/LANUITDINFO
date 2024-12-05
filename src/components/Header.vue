@@ -1,10 +1,23 @@
 <script setup lang="ts">
+import { ref } from 'vue';
+
 const navItems = [
   { title: 'Application', path: '/application' },
-  { title: 'Défis', path: '/defis' },
+  { 
+    title: 'Défis',
+    isDropdown: true,
+    items: [
+      { title: 'Cookie Cauchemar', path: '/defis/cookie-cauchemar' },
+      { title: 'Captcha Ludique', path: '/defis/captcha-ludique' },
+      { title: 'Mashup Gaming', path: '/defis/mashup-gaming' },
+      { title: 'Défier le Grinch', path: '/defis/defier-grinch' }
+    ]
+  },
   { title: 'A propos', path: '/about' },
   { title: 'Donner', path: '/donate' }
 ]
+
+const isOpen = ref(false);
 </script>
 
 <template>
@@ -21,8 +34,36 @@ const navItems = [
       </router-link>
       
       <ul class="flex space-x-8">
-        <li v-for="item in navItems" :key="item.title">
+        <li v-for="item in navItems" :key="item.title" class="relative">
+          <template v-if="item.isDropdown">
+            <div 
+              @mouseenter="isOpen = true"
+              @mouseleave="isOpen = false"
+              class="relative"
+            >
+              <button 
+                class="text-lg hover:text-blue-300 transition-colors duration-200 flex items-center"
+              >
+                {{ item.title }}
+                <span class="ml-1">▼</span>
+              </button>
+              <ul 
+                v-show="isOpen" 
+                class="absolute top-full left-0 bg-blue-800 rounded-md shadow-lg py-2 w-48 z-50"
+              >
+                <li v-for="subItem in item.items" :key="subItem.title">
+                  <router-link 
+                    :to="subItem.path"
+                    class="block px-4 py-2 hover:bg-blue-700 transition-colors duration-200"
+                  >
+                    {{ subItem.title }}
+                  </router-link>
+                </li>
+              </ul>
+            </div>
+          </template>
           <router-link 
+            v-else
             :to="item.path"
             class="text-lg hover:text-blue-300 transition-colors duration-200"
           >
