@@ -38,10 +38,13 @@ const getOrganeClass = computed(() => (organeId: string) => {
 <template>
   <svg class="w-full h-full" viewBox="0 0 400 600">
     <!-- Silhouette du corps -->
-    <path
-      d="M200,50 C300,50 300,150 300,200 C300,250 280,300 280,350 C280,400 300,450 300,500 C300,550 250,600 200,600 C150,600 100,550 100,500 C100,450 120,400 120,350 C120,300 100,250 100,200 C100,150 100,50 200,50"
-      class="fill-blue-100/10 stroke-blue-200/30"
-      stroke-width="2"
+    <image 
+      x="0" 
+      y="0" 
+      width="400" 
+      height="600" 
+      href="../../../assets/corps.svg" 
+      class="opacity-70"
     />
     
     <!-- Organes -->
