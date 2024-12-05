@@ -5,47 +5,41 @@ import { ref } from 'vue'
 
 const equipeInfo = ref([
   {
-    nom: 'Marie Dubois',
-    role: 'Directrice de Projet',
-    description: 'Passionnée par la protection des océans depuis 15 ans',
-    image: '/images/team/marie.jpg'
+    nom: 'Hugo Tondenier',
+    role: 'Directeur de Projet ',
+    description: 'Passionné par la protection des océans depuis 22 ans',
+    image: '/images/team/hugo.jpg'
   },
   {
-    nom: 'Pierre Martin',
+    nom: 'Julien Vollet',
     role: 'Responsable Technique',
     description: 'Expert en solutions durables pour l\'environnement marin',
-    image: '/images/team/pierre.jpg'
+    image: '/images/team/julien.jpg'
   },
   {
-    nom: 'Sophie Laurent',
-    role: 'Coordinatrice Scientifique',
+    nom: 'Ziyad Gnaoui',
+    role: 'Coordinateur Scientifique',
     description: 'Spécialiste en écosystèmes marins',
-    image: '/images/team/sophie.jpg'
+    image: '/images/team/ziyad.jpeg'
   },
   {
-    nom: 'Lucas Bernard',
+    nom: 'Elouen Lefeuvre',
     role: 'Responsable Communication',
     description: 'Expert en sensibilisation environnementale',
-    image: '/images/team/lucas.jpg'
+    image: '/images/team/elouen.jpg'
   },
   {
-    nom: 'Emma Petit',
+    nom: 'Achraf El Faiq',
     role: 'Biologiste Marine',
     description: 'Spécialiste de la biodiversité océanique',
-    image: '/images/team/emma.jpg'
+    image: '/images/team/achraf.jpg'
   },
   {
-    nom: 'Thomas Moreau',
+    nom: 'Clément Lacroix',
     role: 'Ingénieur Environnemental',
     description: 'Expert en solutions de dépollution marine',
-    image: '/images/team/thomas.jpg'
+    image: '/images/team/clement.jpg'
   },
-  {
-    nom: 'Julie Rousseau',
-    role: 'Responsable Partenariats',
-    description: 'Développe des collaborations internationales',
-    image: '/images/team/julie.jpg'
-  }
 ])
 
 const missionTexte = ref(`Notre mission est de sensibiliser et d'agir pour la protection des océans. 
@@ -65,13 +59,13 @@ Nous travaillons sans relâche pour préserver la biodiversité marine et lutter
       </div>
 
       <h2 class="text-3xl text-white font-semibold mb-8 text-center">Notre Équipe</h2>
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-        <MembreEquipe
-          v-for="membre in equipeInfo"
-          :key="membre.nom"
-          v-bind="membre"
-        />
-      </div>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 justify-center place-items-center">
+      <MembreEquipe
+        v-for="membre in equipeInfo"
+        :key="membre.nom"
+        v-bind="membre"
+      />
+    </div>
     </div>
 
     <VaguesDivider position="bas" />
