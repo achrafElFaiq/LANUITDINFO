@@ -70,15 +70,39 @@ const genererNuages = () => {
   }))
 }
 
+const bateau = ref({
+  x: -20, // Commence hors écran à gauche
+  y: 50,
+  rotation: 0,
+  direction: 1 // 1 = droite, -1 = gauche
+})
+
+const animerBateau = () => {
+  // Déplacement horizontal
+  bateau.value.x += 0.1 * bateau.value.direction
+  
+  // Changement de direction aux bords
+  if (bateau.value.x > 120) {
+    bateau.value.direction = -1
+  } else if (bateau.value.x < -20) {
+    bateau.value.direction = 1
+  }
+  
+  // Animation de tangage améliorée
+  bateau.value.rotation = Math.sin(Date.now() / 1000) * 2
+}
+
+const animate = () => {
+  animerPoissons()
+  animerBateau()
+  animationFrame = requestAnimationFrame(animate)
+}
+
 let animationFrame: number
 
 onMounted(() => {
   genererPoissons()
   genererNuages()
-  function animate() {
-    animerPoissons()
-    animationFrame = requestAnimationFrame(animate)
-  }
   animate()
 })
 
@@ -109,6 +133,44 @@ onUnmounted(() => {
       <!-- Partie air (ciel) -->
       <div class="absolute inset-0 h-1/2 bg-blue-200/10"></div>
       
+      <!-- Bateau amélioré -->
+      <div class="absolute"
+           :style="{
+             left: `${bateau.x}%`,
+             top: '50%',
+             transform: `translate(-50%, -100%) rotate(${bateau.rotation}deg) scaleX(${bateau.direction})`,
+             zIndex: 10
+           }">
+        <!-- Coque principale -->
+        <div class="w-48 h-20 bg-gradient-to-b from-gray-600 to-gray-700 rounded-lg relative">
+          <!-- Ligne de flottaison -->
+          <div class="absolute bottom-0 w-full h-6 bg-gray-800 rounded-b-lg"></div>
+          <!-- Bordure supérieure -->
+          <div class="absolute top-0 w-full h-2 bg-gray-500"></div>
+        </div>
+        
+        <!-- Pont avec containers -->
+        <div class="absolute bottom-[95%] left-[10%] right-[30%] h-8 flex gap-1">
+          <div class="flex-1 bg-blue-600 rounded-sm"></div>
+          <div class="flex-1 bg-red-600 rounded-sm"></div>
+          <div class="flex-1 bg-green-600 rounded-sm"></div>
+        </div>
+        
+        <!-- Cabine de pilotage -->
+        <div class="absolute bottom-[95%] right-[10%] w-12 h-14 bg-gradient-to-b from-gray-600 to-gray-700">
+          <!-- Fenêtres -->
+          <div class="w-full h-4 bg-blue-300 mt-2"></div>
+        </div>
+        
+        <!-- Cheminée -->
+        <div class="absolute bottom-[95%] right-[25%] w-8 h-16 bg-gradient-to-b from-red-600 to-red-700">
+          <div class="w-full h-3 bg-white mt-2"></div>
+          <!-- Fumée -->
+          <div class="absolute -top-4 -right-2 w-8 h-8 rounded-full bg-gray-300/30 animate-smoke"></div>
+          <div class="absolute -top-8 right-0 w-6 h-6 rounded-full bg-gray-300/20 animate-smoke-delay"></div>
+        </div>
+      </div>
+
       <!-- Partie eau -->
       <div class="absolute inset-0 top-1/2 bg-blue-500/30">
         <!-- Surface de l'eau animée -->
@@ -169,5 +231,23 @@ onUnmounted(() => {
 @keyframes floatCloud {
   from { transform: translate(-50%, -50%) translateX(-100vw); }
   to { transform: translate(-50%, -50%) translateX(100vw); }
+}
+
+.triangle-sail {
+  clip-path: polygon(0 100%, 50% 0, 100% 100%);
+}
+
+@keyframes smoke {
+  0% { transform: translateY(0) scale(1); opacity: 0.3; }
+  100% { transform: translateY(-20px) scale(2); opacity: 0; }
+}
+
+.animate-smoke {
+  animation: smoke 3s infinite;
+}
+
+.animate-smoke-delay {
+  animation: smoke 3s infinite;
+  animation-delay: 1.5s;
 }
 </style>
