@@ -4,6 +4,7 @@ interface MembreEquipeProps {
   role: string
   description: string
   image: string
+  lien?: string
 }
 
 defineProps<MembreEquipeProps>()
@@ -19,7 +20,16 @@ defineProps<MembreEquipeProps>()
       />
       <div class="absolute inset-0 rounded-full bg-gradient-to-b from-blue-500/20 to-blue-900/40"></div>
     </div>
-    <h3 class="text-2xl text-white font-semibold mb-2 text-center">{{ nom }}</h3>
+    <h3 class="text-2xl text-white font-semibold mb-2 text-center">
+      <template v-if="lien">
+        <a :href="lien" target="_blank" rel="noopener noreferrer" class="hover:underline">
+          {{ nom }}
+        </a>
+      </template>
+      <template v-else>
+        {{ nom }}
+      </template>
+    </h3>
     <p class="text-blue-200 font-medium mb-3 text-center">{{ role }}</p>
     <p class="text-blue-100 text-center">{{ description }}</p>
   </div>

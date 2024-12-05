@@ -3,33 +3,38 @@ import { ref, watch } from 'vue'
 import CorpsHumainSVG from './corps/CorpsHumainSVG.vue'
 import OrganeDetail from './corps/OrganeDetail.vue'
 
+
 const props = defineProps<{
   actionActive: number | null
 }>()
 
 const organes = ref([
-  {
+{
     id: 'cerveau',
     nom: 'Cerveau',
-    path: 'M200,80 C230,80 250,100 250,130 C250,160 230,180 200,180 C170,180 150,160 150,130 C150,100 170,80 200,80',
-    viewBox: '0 0 100 100',
+    path: 'M200,20 C215,20 225,30 225,45 C225,60 215,70 200,70 C185,70 175,60 175,45 C175,30 185,20 200,20',
+    transform: 'translate(50, 0)',  
+    viewBox: '0 0 50 50',
     description: 'Centre de contrôle du corps',
     etatSante: 100,
     effets: ['Concentration réduite', 'Maux de tête occasionnels']
-  },
-  {
-    id: 'poumons',
-    nom: 'Poumons',
-    path: 'M160,200 C180,200 190,220 190,250 C190,280 180,300 160,300 C140,300 130,280 130,250 C130,220 140,200 160,200 M240,200 C260,200 270,220 270,250 C270,280 260,300 240,300 C220,300 210,280 210,250 C210,220 220,200 240,200',
-    viewBox: '0 0 100 100',
-    description: 'Organes respiratoires',
-    etatSante: 85,
-    effets: ['Capacité respiratoire diminuée', 'Irritation des voies respiratoires']
-  },
+}
+,
+{
+  id: 'poumons',
+  nom: 'Poumons',
+  path: 'M173,127 C180,110 185,120 185,135 C185,150 180,160 173,160 C166,160 160,150 160,135 C160,120 166,110 173,127 M223,127 C230,110 235,120 235,135 C235,150 230,160 223,160 C216,160 210,150 210,135 C210,120 216,110 223,127',
+  viewBox: '0 0 50 50',
+  description: 'Organes respiratoires',
+  etatSante: 85,
+  effets: ['Capacité respiratoire diminuée', 'Irritation des voies respiratoires']
+}
+
+,
   {
     id: 'coeur',
     nom: 'Cœur',
-    path: 'M200,220 C230,220 250,240 250,270 C250,300 230,320 200,320 C170,320 150,300 150,270 C150,240 170,220 200,220',
+    path: 'M200,130 C215,130 225,140 225,155 C225,170 215,180 200,180 C185,180 175,170 175,155 C175,140 185,130 200,130',
     viewBox: '0 0 100 100',
     description: 'Pompe du système circulatoire',
     etatSante: 90,
@@ -38,7 +43,7 @@ const organes = ref([
   {
     id: 'foie',
     nom: 'Foie',
-    path: 'M180,350 C220,350 240,370 240,400 C240,430 220,450 180,450 C140,450 120,430 120,400 C120,370 140,350 180,350',
+    path: 'M175,187.5 C197.5,187.5 208.75,195 208.75,210 C208.75,225 197.5,232.5 175,232.5 C152.5,232.5 141.25,225 141.25,210 C141.25,195 152.5,187.5 175,187.5',
     viewBox: '0 0 100 100',
     description: 'Organe de détoxification',
     etatSante: 75,
@@ -47,7 +52,7 @@ const organes = ref([
   {
     id: 'estomac',
     nom: 'Estomac',
-    path: 'M200,380 C230,380 250,400 250,430 C250,460 230,480 200,480 C170,480 150,460 150,430 C150,400 170,380 200,380',
+    path: 'M200,230 C230,230 250,250 250,280 C250,310 230,330 200,330 C170,330 150,310 150,280 C150,250 170,230 200,230',
     viewBox: '0 0 100 100',
     description: 'Système digestif',
     etatSante: 60,
