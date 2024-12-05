@@ -1,0 +1,16 @@
+Pour utiliser les images de l'équipe :
+
+1. Créez un dossier 'team' dans le répertoire public/images
+2. Ajoutez les photos des membres de l'équipe avec les noms suivants :
+   - marie.jpg
+   - pierre.jpg
+   - sophie.jpg
+   - lucas.jpg
+   - emma.jpg
+   - thomas.jpg
+   - julie.jpg
+
+Format recommandé :
+- Dimensions : 400x400 pixels
+- Format : JPG
+- Orientation : Portrait
