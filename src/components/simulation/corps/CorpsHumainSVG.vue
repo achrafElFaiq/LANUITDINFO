@@ -33,16 +33,18 @@ const getOrganeClass = computed(() => (organeId: string) => {
   
   return baseClasses
 })
+
+
 </script>
 
 <template>
   <svg class="w-full h-full" viewBox="0 0 400 600">
     <!-- Silhouette du corps -->
     <image 
-      x="0" 
-      y="0" 
-      width="400" 
-      height="600" 
+      x="-70" 
+      y="-50" 
+      width="510" 
+      height="700" 
       href="../../../assets/corps.svg" 
       class="opacity-70"
     />
