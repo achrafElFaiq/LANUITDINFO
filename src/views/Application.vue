@@ -8,7 +8,6 @@ const actionsDisponibles = ref([
   { id: 1, nom: 'Pollution plastique', description: 'Simuler l\'impact des déchets plastiques' },
   { id: 2, nom: 'Microplastiques', description: 'Observer l\'absorption des microplastiques' },
   { id: 3, nom: 'Métaux lourds', description: 'Visualiser la contamination par métaux lourds' },
-  { id: 4, nom: 'Produits chimiques', description: 'Effet des produits chimiques toxiques' }
 ])
 
 const actionSelectionnee = ref<number | null>(null)
