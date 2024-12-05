@@ -13,8 +13,8 @@ const navItems = [
       <router-link to="/" class="flex items-center">
         <div class="logo-container">
           <h1 class="text-3xl font-righteous text-white relative">
-            <span class="relative z-10">Nuit</span>
-            <span class="text-blue-300 ml-2 relative z-10">Info</span>
+            <span class="relative z-10">CHILL </span>
+            <span class="text-blue-300 ml-2 relative z-10">POSEIDON</span>
             <div class="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-transparent blur-sm transform -skew-x-12"></div>
           </h1>
         </div>
