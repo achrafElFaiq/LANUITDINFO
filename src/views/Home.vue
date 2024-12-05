@@ -90,6 +90,7 @@ const navigateToApplication = () => {
   </div>
 </template>
 
+
 <style scoped>
 /* Ombre pour le texte */
 .drop-shadow-lg {
