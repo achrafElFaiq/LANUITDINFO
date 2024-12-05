@@ -1,6 +1,6 @@
 <template>
   <div class="app" @mousemove="fillGauge">
-    <h1 id="title">Bouge la souris dans la zone droite et essaie de cliquer 10 fois sur les boutons</h1>
+    <h1 id="title">Bouge la souris dans la zone droite et essaie d'atteindre un score de 10 !</h1>
     <div id="right-zone">
       <div id="gauge-container">
         <div id="gauge" :style="{ height: gaugeProgress + '%' }"></div>
@@ -142,7 +142,7 @@ export default {
   font-family: Comic Sans MS, cursive;
   text-align: center;
   overflow: hidden;
-  height: 100vh;
+  height: 92vh;
   position: relative;
 }
 
