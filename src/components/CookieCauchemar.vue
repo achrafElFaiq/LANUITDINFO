@@ -46,7 +46,7 @@ export default {
       rightZoneWidth: 300,
       lastMoveTime: Date.now(),
       decayInterval: null,
-      isMoving: false, // Flag pour éviter des mouvements simultanés
+      //isMoving: false, // Flag pour éviter des mouvements simultanés
     };
   },
   methods: {
@@ -63,23 +63,21 @@ export default {
 
       this.$refs.clickSound.play();
     },
+    
     moveButton(index) {
-      if (this.isMoving) return; // Empêche le déplacement si déjà en cours
-      this.isMoving = true;
+      // Génère une position aléatoire pour chaque bouton
+      let x = Math.random() * (window.innerWidth - 150); // Ajuste pour ne pas sortir de l'écran
+      let y = Math.random() * (window.innerHeight - 150);
 
-      setTimeout(() => {
-        let x = Math.random() * (window.innerWidth - 150);
-        let y = Math.random() * (window.innerHeight - 150);
+      // S'assurer que le bouton ne tombe pas dans la zone de la jauge
+      if (x > window.innerWidth - this.rightZoneWidth - 150) {
+        x = window.innerWidth - this.rightZoneWidth - 150; // Décalage à gauche pour éviter la zone de jauge
+      }
 
-        // Évite la zone de la jauge
-        if (x > window.innerWidth - this.rightZoneWidth - 150) {
-          x = window.innerWidth - this.rightZoneWidth - 150;
-        }
-
-        this.buttonPositions[index] = { x, y };
-        this.isMoving = false; // Réinitialise le drapeau après le mouvement
-      }, 300);
+      // Met à jour la position du bouton spécifique
+      this.buttonPositions[index] = { x, y };
     },
+    
     showPopUpMessage(message) {
       this.popUpMessage = message;
       this.showPopUp = true;

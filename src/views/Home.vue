@@ -77,6 +77,25 @@ const navigateToApplication = () => {
   </div>
 </div>
 
+  <div class="container mx-auto px-4 py-12">
+    <h2 class="text-3xl text-white font-bold text-center mb-8">Race for Water</h2>
+    <div class="grid md:grid-cols-2 gap-8 items-center">
+      <div>
+        <p class="text-gray-200 text-lg leading-relaxed">
+          Race for Water est une fondation dédiée à la préservation de l'eau et à la lutte contre la pollution plastique dans les océans. 
+          Leur mission est de sensibiliser le public et de promouvoir des solutions innovantes pour protéger nos ressources en eau.
+        </p>
+        <p class="text-gray-200 text-lg leading-relaxed mt-4">
+        
+        </p>
+      </div>
+      <div>
+        <a href="https://www.raceforwater.org" class="text-blue-400 underline" target="_blank">
+        <img src="/images/ocean/raceforwater.jpg" alt="Race for Water" class="rounded-lg shadow-lg">
+        </a>
+      </div>
+    </div>
+  </div>
 
 </div>
 
