@@ -1,5 +1,8 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
+import { useRoute } from 'vue-router';
+
+const route = useRoute();
 
 const navItems = [
   { title: 'Application', path: '/application' },
@@ -18,6 +21,10 @@ const navItems = [
 ]
 
 const isOpen = ref(false);
+
+const isInChallengesSection = computed(() => {
+  return route.path.startsWith('/defis/');
+});
 </script>
 
 <template>
@@ -43,6 +50,7 @@ const isOpen = ref(false);
             >
               <button 
                 class="text-lg hover:text-blue-300 transition-colors duration-200 flex items-center"
+                :class="{ 'active-link': isInChallengesSection }"
               >
                 {{ item.title }}
                 <span class="ml-1">▼</span>
@@ -66,6 +74,7 @@ const isOpen = ref(false);
             v-else
             :to="item.path"
             class="text-lg hover:text-blue-300 transition-colors duration-200"
+            :class="{ 'active-link': route.path === item.path }"
           >
             {{ item.title }}
           </router-link>
@@ -105,5 +114,11 @@ const isOpen = ref(false);
 @keyframes wave {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-5px); }
+}
+
+.active-link {
+  color: #93c5fd; /* text-blue-300 en Tailwind */
+  text-shadow: 0 0 8px rgba(147, 197, 253, 0.5);
+  font-weight: 500;
 }
 </style>
