@@ -9,6 +9,12 @@
 
   </div>
 
+
+  <div class="min-h-screen bg-gradient-to-b from-blue-900 via-blue-700 to-blue-500 relative">
+
+  <!-- Vague du haut -->
+  <VaguesDivider position="haut" />
+
   <div class="calendar-container">
 
 
@@ -18,7 +24,7 @@
       <button @click="playBackgroundMusic">Cliquez pour activer la musique</button>
     </div>
 
-    <div class="titre">Calendrier de l’Avent - Défiez le Grinch !</div>
+    <div class="titre text-4xl text-white font-bold text-center mb-12 drop-shadow-lg">Calendrier de l’Avent - Défiez le Grinch !</div>
     <img class="corner-image" src="/images/defi_grinch/grinch-removebg.png" alt="Image du Grinch">
     <img class="corner-image2" src="/images/defi_grinch/grinch-removebg.png" alt="Image du Grinch">
     <div class="calendar">
@@ -45,9 +51,16 @@
       </div>
     </div>
   </div>
+  </div>
+  <VaguesDivider position="bas" />
+
+
+
 </template>
 
 <script>
+import VaguesDivider from './VaguesDivider.vue'
+
 export default {
   data() {
     return {
@@ -109,22 +122,25 @@ export default {
     },
   },
 };
+
+
+
 </script>
 
 <style scoped>
 /* Conteneur principal */
 .calendar-container {
   margin: 0;
-  padding: 0;
+  padding: 1000;
   height: 100vh;
-  background-color: rgb(4, 144, 236); /* Fond bleu pour toute la page */
+  /*background-color: rgb(4, 144, 236); /* Fond bleu pour toute la page */
   display: flex;
   flex-direction: column;
   align-items: center;
   position: relative;
 }
 
-/* Titre principal */
+/* Titre principal 
 .titre {
   margin-top: 20px;
   font-size: 40px;
@@ -132,6 +148,12 @@ export default {
   font-family: cursive;
   color: black;
   text-align: center;
+} */
+
+ /*Titre principal */ 
+.titre {
+  margin-top: 30px;
+  text-align : center;
 }
 
 /* Images du Grinch dans les coins */
